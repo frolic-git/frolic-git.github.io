@@ -101,9 +101,12 @@ input, select, textarea {
 	body {
 		background-color: #2e3141;
 		background-image: linear-gradient(to top, rgba(46, 49, 65, 0.8), rgba(46, 49, 65, 0.8)), url("../../images/bg.jpg");
-		background-size: auto, cover;
-		background-attachment: fixed, fixed;
-		background-position: center, center;
+		background-size: auto,
+ cover;
+		background-attachment: fixed,
+ fixed;
+		background-position: center,
+ center;
 	}
 
 		body.is-preload *, body.is-preload *:before, body.is-preload *:after {
@@ -2406,7 +2409,53 @@ input, select, textarea {
 			font-family: 'Font Awesome 5 Brands';
 		}
 
+
+  .image-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Add some spacing between images */
+  }
+
+  /*.image-gallery img {
+    max-width: 100%; /* Ensure images don't exceed their original widths 
+    height: auto; /* Allow images to adjust their height while maintaining aspect ratio 
+    flex-shrink: 0; /* Prevent images from shrinking 
+  }*/
+
+  .image-gallery img {
+    width: 200px; /* Set a larger width for images with the 'large' class */
+    height: auto; /* Allow images to adjust their height while maintaining aspect ratio */
+  }
+
+   .image-gallery img.L {
+    width: 280px; /* Set a larger width for images with the 'large' class */
+    height: auto; /* Allow images to adjust their height while maintaining aspect ratio */
+  }
+  .image-gallery img.XL {
+    width: 400px; /* Set a larger width for images with the 'large' class */
+    height: auto; /* Allow images to adjust their height while maintaining aspect ratio */
+  }
+
+
 /* Image */
+
+	.imageLeft {
+		border-radius: 50%;
+		border: 1;
+		display: inline-block;
+		position: relative;
+		float: left;
+		word-spacing: 15px;
+
+	}
+
+	.imageLeft img {
+		border-radius: 50%;
+		display: inline-block;
+		width: 128px;
+		height: 128px;
+		margin: 0px 10px;
+	}
 
 	.image {
 		border-radius: 5px;
@@ -3223,6 +3272,17 @@ input, select, textarea {
 
 		}
 
+#header .menu-button {
+    font-family: Raleway, Helvetica, sans-serif;
+    font-size: 14px; /* Adjust font size as needed */
+    font-weight: 200;
+    text-transform: uppercase;
+    padding: 10px 20px; /* Adjust padding as needed */
+    color: white; /* Adjust text color */
+    text-decoration: none;
+    cursor: pointer;
+}
+
 /* Menu */
 
 	#page-wrapper {
@@ -3231,8 +3291,57 @@ input, select, textarea {
 		-ms-transition: -ms-filter 0.25s ease;
 		transition: filter 0.25s ease;
 	}
+	
+#header .menu-button {
+    font-family: Raleway, Helvetica, sans-serif;
+    font-size: 14px; /* Adjust font size as needed */
+    font-weight: 200;
+    text-transform: uppercase;
+    padding: 10px 20px; /* Adjust padding as needed */
+    color: white; /* Adjust text color */
+    text-decoration: none;
+    cursor: pointer;
+}
 
-	#menu {
+#menu {
+    display: none;
+    background: #4c5c96;
+    border-radius: 5px;
+    max-width: 100%;
+    position: absolute;
+    top: 50px; /* Adjust top position to align with header */
+    left: 0;
+}
+
+#menu.is-visible {
+    display: block;
+}
+
+#menu .links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#menu .links li a {
+    font-family: Raleway, Helvetica, sans-serif;
+    font-size: 0.8em;
+    font-weight: 200;
+    letter-spacing: 0.1em;
+    line-height: 1.85em;
+    padding: 0.75em 0;
+    text-transform: uppercase;
+    display: block;
+    color: white; /* Adjust text color */
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+#menu .links li a:hover {
+    background: #45558d; /* Adjust hover background color */
+}
+
+	/*#menu 	{
 		-moz-align-items: center;
 		-webkit-align-items: center;
 		-ms-align-items: center;
@@ -3265,7 +3374,66 @@ input, select, textarea {
 		top: 0;
 		visibility: hidden;
 		width: 100%;
-	}
+	}*/
+
+	/*#menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(46, 49, 65, 0.8);
+    height: 50px; /* Adjust height as needed */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9999; /* Ensure menu is on top */
+}
+
+#menu .links {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#menu .links li {
+    margin: 0;
+}
+
+#menu .links li a {
+    font-family: Raleway, Helvetica, sans-serif;
+    font-size: 14px; /* Adjust font size as needed */
+    font-weight: 200;
+    text-transform: uppercase;
+    padding: 10px 20px; /* Adjust padding as needed */
+    color: white; /* Adjust text color */
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+#menu .links li a:hover {
+    background: #45558d; /* Adjust hover background color */
+}
+
+body.is-menu-visible #page-wrapper {
+    -moz-filter: blur(1.5px);
+    -webkit-filter: blur(1.5px);
+    -ms-filter: blur(1.5px);
+    filter: blur(1.5px);
+}
+
+body.is-menu-visible #menu {
+    pointer-events: auto;
+    opacity: 1;
+    visibility: visible;
+}
+
+body.is-menu-visible #menu .inner {
+    -moz-transform: translateY(0);
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+}
 
 		#menu .inner {
 			padding: 2.5em 1.5em 0.5em 1.5em ;
@@ -3308,9 +3476,9 @@ input, select, textarea {
 			text-indent: 4em;
 			top: 0;
 			width: 4em;
-		}
+		}*/
 
-		#menu .links {
+		/*#menu .links {
 			list-style: none;
 			margin-bottom: 1.5em;
 			padding: 0;
@@ -3335,7 +3503,7 @@ input, select, textarea {
 
 					#menu .links li a:hover {
 						background: #45558d;
-					}
+					}*/
 
 		@media screen and (max-width: 736px) {
 
@@ -3351,7 +3519,7 @@ input, select, textarea {
 
 		}
 
-	body.is-menu-visible #page-wrapper {
+	/*body.is-menu-visible #page-wrapper {
 		-moz-filter: blur(1.5px);
 		-webkit-filter: blur(1.5px);
 		-ms-filter: blur(1.5px);
@@ -3464,8 +3632,10 @@ input, select, textarea {
 				padding: 7em 0 8.25em 0 ;
 				background-color: #2e3141;
 				background-image: linear-gradient(to top, rgba(46, 49, 65, 0.8), rgba(46, 49, 65, 0.8)), url("../../images/bg.jpg");
-				background-size: auto, cover;
-				background-position: center, center;
+				background-size: auto,
+ cover;
+				background-position: center,
+ center;
 				margin-bottom: -6.5em;
 			}
 
@@ -3559,6 +3729,12 @@ input, select, textarea {
 			padding-bottom: 0.4em;
 		}
 
+
+		#wrapper > header h3 {
+			font-size: 2em;
+			margin-bottom: 0.1em;
+		}
+
 		#wrapper > header p {
 			font-family: Raleway, Helvetica, sans-serif;
 			font-size: 1em;
@@ -3574,8 +3750,10 @@ input, select, textarea {
 			padding: 9em 0 6.25em 0 ;
 			background-color: #2e3141;
 			background-image: linear-gradient(to top, rgba(46, 49, 65, 0.8), rgba(46, 49, 65, 0.8)), url("../../images/bg.jpg");
-			background-size: auto, cover;
-			background-position: center, 0% 30%;
+			background-size: auto,
+ cover;
+			background-position: center,
+ 0% 30%;
 			margin-bottom: -6.5em;
 		}
 
@@ -3585,8 +3763,10 @@ input, select, textarea {
 
 		#wrapper > header {
 			padding: 11em 3em 7.375em 3em ;
-			background-size: auto, cover;
-			background-position: center, 0% 0%;
+			background-size: auto,
+ cover;
+			background-position: center,
+ 0% 0%;
 			margin-bottom: -4.75em;
 		}
 
@@ -3600,7 +3780,8 @@ input, select, textarea {
 
 		#wrapper > header {
 			padding: 6.5em 2em 3em 2em ;
-			background-size: auto, 125%;
+			background-size: auto,
+ 125%;
 			margin-bottom: -2.5em;
 		}
 
@@ -3810,7 +3991,7 @@ input, select, textarea {
 				-webkit-flex-direction: row-reverse;
 				-ms-flex-direction: row-reverse;
 				flex-direction: row-reverse;
-				text-align: right;
+				text-align: left;
 			}
 
 			.wrapper.spotlight:nth-child(2n - 1) .image {
@@ -3867,6 +4048,11 @@ input, select, textarea {
 
 			.wrapper.spotlight.style5 {
 				background-color: #324072;
+			}
+
+			.wrapper.spotlight.style5 img {
+     			max-width: 100%;
+    			height: auto;
 			}
 
 				.wrapper.spotlight.style5:before, .wrapper.spotlight.style5:after {
@@ -4062,8 +4248,10 @@ input, select, textarea {
 		#footer {
 			background-color: #2e3141;
 			background-image: linear-gradient(to top, rgba(46, 49, 65, 0.8), rgba(46, 49, 65, 0.8)), url("../../images/bg.jpg");
-			background-size: auto, cover;
-			background-position: center, center;
+			background-size: auto,
+ cover;
+			background-position: center,
+ center;
 			margin-top: -6.5em;
 			padding-top: 6.5em;
 		}
